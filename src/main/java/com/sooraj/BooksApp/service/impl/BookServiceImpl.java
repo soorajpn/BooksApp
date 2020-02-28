@@ -1,5 +1,7 @@
 package com.sooraj.BooksApp.service.impl;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,27 +18,31 @@ public class BookServiceImpl implements BookService{
 	@Override
 	public Book saveBook(Book book) {
 		
-		this.bookRepo.save(book);
 		
-		return null;
+		
+		return this.bookRepo.save(book);
 	}
 
 	@Override
 	public Book updateBook(Book book) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return this.bookRepo.save(book);
+
 	}
 
 	@Override
-	public Book delete(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+	public void delete(Long id) {
+		 this.bookRepo.deleteById(id);
 	}
 
 	@Override
-	public Book findByName(Book book) {
-		// TODO Auto-generated method stub
-		return null;
+	public Book findByName(String name) {
+		System.out.println("book to be find "+name);
+
+		 Optional<Book> result=this.bookRepo.findByName(name);
+		 if(result.isPresent())return result.get();
+		 
+		 else return null;
 	}
 
 }

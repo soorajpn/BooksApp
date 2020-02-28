@@ -26,16 +26,22 @@ public class Book {
 	public void setName(String name) {
 		this.name = name;
 	}
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public Long getPrice() {
 		return price;
 	}
 	public void setPrice(Long price) {
 		this.price = price;
 	}
-	
 	@Override
 	public String toString() {
-		return "Book [name=" + name + ", price=" + price + "]";
+		return "Book [id=" + id + ", name=" + name + ", price=" + price + "]";
 	}
-
+	
+	
 }

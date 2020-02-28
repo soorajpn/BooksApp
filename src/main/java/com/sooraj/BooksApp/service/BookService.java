@@ -6,8 +6,8 @@ public interface BookService {
 	
 	public Book saveBook(Book book);
 	public Book updateBook(Book book);
-	public Book delete(Integer id);
-	public Book findByName(Book book);
+	public void delete(Long id);
+	public Book findByName(String name);
 
 
 }
