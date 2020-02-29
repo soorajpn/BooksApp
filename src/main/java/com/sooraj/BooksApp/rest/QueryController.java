@@ -9,11 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.sooraj.BooksApp.entity.Book;
 import com.sooraj.BooksApp.service.BookService;
 
-@RestController //It adds @Request body to the methods so we response is not html/jsp but json/xml
+@Controller //It adds @Request body to the methods so we response is not html/jsp but json/xml
 				//so no need to add @ResponseBody annotation
 @RequestMapping("/api")
 public class QueryController {
@@ -26,6 +27,25 @@ public class QueryController {
 		System.out.println("book to be find "+name);
 		return this.bookService.findByName(name);
 	}
+	
+
+	@GetMapping("/welcome")
+	public ModelAndView home() {
+		System.out.println("wecome home ");
+		
+		ModelAndView mv=new ModelAndView();
+		mv.setViewName("/jsp/home");
+
+		return mv;
+	}
+	
+	 @RequestMapping("/index")
+	   public String index() {
+		 
+			System.out.println(" index method ");
+
+	      return "/jsp/index";
+	   }
 
 	
 	

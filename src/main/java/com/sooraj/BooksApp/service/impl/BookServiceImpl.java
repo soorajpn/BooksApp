@@ -18,8 +18,7 @@ public class BookServiceImpl implements BookService{
 	@Override
 	public Book saveBook(Book book) {
 		
-		
-		
+
 		return this.bookRepo.save(book);
 	}
 
